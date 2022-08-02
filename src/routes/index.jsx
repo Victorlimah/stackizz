@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LandingPage from "../pages/LandingPage";
 
 import { AppProvider } from "../providers/AppContext";
 
@@ -7,7 +8,7 @@ export default function Router() {
     <BrowserRouter>
       <AppProvider>
         <Routes>
-          <Route path="/" element={<h1>Oi</h1>} />
+          <Route path="/" element={<LandingPage/>} />
           {/* <Route path="/sign-up" element={<Register />} />
           <Route path="/dashboard" element={ <PrivateRoute> <Dashboard /> </PrivateRoute>} /> */}
         </Routes>
