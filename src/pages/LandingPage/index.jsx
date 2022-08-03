@@ -3,7 +3,10 @@ import * as S from "./styles";
 import Logo from "../../assets/logotipo.png";
 import Background from "../../assets/background.jpg"
 
+import { useNavigate } from "react-router-dom";
+
 export default function LandingPage() {
+  const navigate = useNavigate();
 
   return (
     <S.Container background={Background}>
@@ -11,7 +14,7 @@ export default function LandingPage() {
       <S.Title>Pratique seus conhecimentos em programação</S.Title>
       <S.Start>
         <S.Text>Começar agora</S.Text>
-        <S.Button>{">"}</S.Button>
+        <S.Button onClick={() => navigate("/signin")}>{">"}</S.Button>
       </S.Start>
     </S.Container>
   );
