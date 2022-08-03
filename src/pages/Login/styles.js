@@ -53,11 +53,11 @@ export const Form = styled.form`
   justify-content: center;
   width: 100%;
   max-width: 400px;
-  padding: ${props => (props.error ? '30px' : '45px 30px 30px 30px')};
-  background: rgba(0, 0, 0, 0.5);
+  padding: ${(props) => (props.error ? "30px" : "45px 30px 30px 30px")};
+  background: rgba(0, 0, 60, 0.5);
   border-radius: 30px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  transition: all 0.0s ease-in-out;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  transition: all 0s ease-in-out;
 `;
 
 export const Input = styled.input`

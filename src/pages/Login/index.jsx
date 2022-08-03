@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import logo from "../../assets/logotipo.png";
 import developer from "../../assets/developer.png";
-import background from "../../assets/background.jpg";
+import background from "../../assets/animated-background.gif";
 
 import { signin } from "../../services/authService";
 
