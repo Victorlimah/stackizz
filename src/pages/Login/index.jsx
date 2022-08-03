@@ -8,6 +8,8 @@ import logo from "../../assets/logotipo.png";
 import developer from "../../assets/developer.png";
 import background from "../../assets/background.jpg";
 
+import { signin } from "../../services/authService";
+
 export default function Login() {
   const {
     register,
@@ -19,16 +21,17 @@ export default function Login() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = (data) => {
+  const onSubmit = async ({ email, password }) => {
     setLoading(true);
-    if(data.email === "vi@gmail.com"){
-      setError("Email ou senha incorretos");
+    try {
+      const response = await signin(email, password);
+      localStorage.setItem("token", response.token);
+      navigate("/timeline");
+    } catch (e) {
+      setError("Usuário ou senha inválida");
+    } finally {
       setLoading(false);
-      return;
     }
-    setError("");
-    console.log(data);
-    setLoading(false);
   };
 
   return (
@@ -61,7 +64,7 @@ export default function Login() {
           </S.Button>
 
           <S.Register onClick={() => navigate("/signup")}>
-              Não tem uma conta? Se cadastre
+            Não tem uma conta? Se cadastre
           </S.Register>
         </S.Form>
       </S.Right>
