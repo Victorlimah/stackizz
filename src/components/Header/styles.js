@@ -1,17 +1,16 @@
 import styled from "styled-components";
 
 export const Header = styled.header`
-  height: 70px;
+  width: 100vw;
+  max-width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15px;
   background: #3248da;
 `;
 
 export const Logo = styled.img`
-  width: 150px;
-  height: 150px;
+  width: 120px;
 `;
 
 export const Title = styled.h1`
