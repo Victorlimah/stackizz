@@ -26,7 +26,7 @@ export default function Login() {
     try {
       const response = await signin(email, password);
       localStorage.setItem("token", response.token);
-      navigate("/timeline");
+      navigate("/home");
     } catch (e) {
       setError("Usuário ou senha inválida");
     } finally {

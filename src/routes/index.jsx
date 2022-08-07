@@ -18,6 +18,8 @@ export default function Router() {
           <Route path="/history" element={<h1>the page is being developed</h1>} />
           <Route path="/ranking" element={<h1>the page is being developed</h1>} />
           <Route path="/profile" element={<h1>the page is being developed</h1>} />
+
+          <Route path="*" element={<h1>page not found</h1>} />
           
         </Routes>
       </AppProvider>
