@@ -67,4 +67,10 @@ export const ModuleContent = styled.div`
   padding: 35px 15px;
   border-radius: 20px;
   text-align: center;
+
+  &:hover {
+    background-color: #00caf2;
+    cursor: pointer;
+    transform: scale(1.05);
+  }
 `;

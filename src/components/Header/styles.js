@@ -10,7 +10,7 @@ export const Header = styled.header`
 `;
 
 export const Logo = styled.img`
-  width: 120px;
+  width: 150px;
 `;
 
 export const Title = styled.h1`

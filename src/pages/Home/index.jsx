@@ -1,7 +1,21 @@
-import Header from "../../components/Header";
 import * as S from "./styles";
+import { useState, useEffect } from "react";
+
+import Header from "../../components/Header";
+import { getModules } from "../../services/modulesService";
 
 export default function Home() {
+  const [ modules, setModules ] = useState([]);
+
+  async function getAllModules() {
+    const response = await getModules();
+    setModules(response);
+  }
+
+  useEffect(() => {
+    getAllModules();
+  } , []);
+
   return (
     <>
       <Header />
@@ -13,14 +27,23 @@ export default function Home() {
         <S.Content>
           <S.Module>
             <S.HeadingModule>Meus módulos</S.HeadingModule>
-            <S.ModuleContent>
-              <S.Heading>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </S.Heading>
-            </S.ModuleContent>
+            {modulesFactory(modules)}
           </S.Module>
         </S.Content>
       </S.Container>
     </>
   );
+
+  function modulesFactory(arrayModules){
+    return arrayModules.map(module => {
+      return (
+        <S.ModuleContent key={module.id}>
+          <S.Heading>
+            {module.name}
+          </S.Heading>
+        </S.ModuleContent>
+      );
+    }
+    )
+  }
 }
