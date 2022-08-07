@@ -16,7 +16,7 @@ export const Header = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 80px;
+  padding-bottom: 40px;
   border-radius: 0 0 80px 80px;
   background: #3248da;
 `;
