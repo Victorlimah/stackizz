@@ -1,12 +1,16 @@
 import * as S from "./styles";
+
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { getModules } from "../../services/modulesService";
 
 import Header from "../../components/Header";
-import { getModules } from "../../services/modulesService";
 import Footer from "../../components/Footer";
 
 export default function Home() {
-  const [ modules, setModules ] = useState([]);
+  const [modules, setModules] = useState([]);
+  const navigate = useNavigate();
 
   async function getAllModules() {
     const response = await getModules();
@@ -15,7 +19,7 @@ export default function Home() {
 
   useEffect(() => {
     getAllModules();
-  } , []);
+  }, []);
 
   return (
     <>
@@ -36,16 +40,13 @@ export default function Home() {
     </>
   );
 
-  function modulesFactory(arrayModules){
-    return arrayModules.map(module => {
+  function modulesFactory(arrayModules) {
+    return arrayModules.map(({ id, name }) => {
       return (
-        <S.ModuleContent key={module.id}>
-          <S.Heading>
-            {module.name}
-          </S.Heading>
+        <S.ModuleContent key={id} onClick={() => navigate(`/topic/${id}`)}>
+          <S.Heading>{name}</S.Heading>
         </S.ModuleContent>
       );
-    }
-    )
+    });
   }
 }
