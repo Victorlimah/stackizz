@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 import Header from "../../components/Header";
 import { getModules } from "../../services/modulesService";
+import Footer from "../../components/Footer";
 
 export default function Home() {
   const [ modules, setModules ] = useState([]);
@@ -31,6 +32,7 @@ export default function Home() {
           </S.Module>
         </S.Content>
       </S.Container>
+      <Footer page="home" />
     </>
   );
 
