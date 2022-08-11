@@ -17,7 +17,7 @@ export default function Questions() {
   const id = useParams().id;
   const navigate = useNavigate();
 
-  const [questions, setQuestions] = useState([{id: 0, name: "", Answer: []}]);
+  const [questions, setQuestions] = useState([{ id: 0, name: "", Answer: [] }]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [currentAnswer, setCurrentAnswer] = useState(0);
   const [numberOfQuestions, setNumberOfQuestions] = useState(0);
@@ -62,7 +62,7 @@ export default function Questions() {
               })}
             </S.Answers>
             {currentQuestion === numberOfQuestions - 1 ? (
-              <S.Button onClick={() => navigate("/finish")}>Finalizar</S.Button>
+              <S.Button onClick={() => finalizeQuizz()}>Finalizar</S.Button>
             ) : (
               <S.Button onClick={() => nextQuestion()}>
                 Próxima pergunta
@@ -78,11 +78,19 @@ export default function Questions() {
   );
 
   function selectAnswer(id) {
-    console.log(`swipe: ${id}`);
     setCurrentAnswer(id);
   }
 
-  async function nextQuestion() {
+  async function nextQuestion(last) {
+    if (!currentAnswer) {
+      Swal.fire({
+        title: "Ops!",
+        text: "Você precisa selecionar uma resposta para prosseguir",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+      return;
+    }
     const response = await checkAnswer(currentAnswer);
     if (response.result) {
       Swal.fire({
@@ -114,6 +122,17 @@ export default function Questions() {
         })
       );
     }
+    if (!last) stepQuestion();
+  }
+
+  async function finalizeQuizz() {
+    nextQuestion("last");
+    setTimeout(() => {
+      navigate("/result");
+    });
+  }
+
+  function stepQuestion() {
     setCurrentAnswer(null);
     setCurrentQuestion(currentQuestion + 1);
   }

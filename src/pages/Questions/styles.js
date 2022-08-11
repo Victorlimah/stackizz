@@ -107,10 +107,5 @@ export const Button = styled.button`
   height: 50px;
   border-radius: 5px;
   cursor: pointer;
-  &:hover {
-    text-decoration: underline;
-    border: 1px solid #3248da;
-    color: #3248da;
-    background-color: #f5f5f5;
-  }
+  
 `;

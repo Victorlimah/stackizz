@@ -6,7 +6,6 @@ export async function getQuestionsWithAnswers(id) {
 }
 
 export async function checkAnswer(id){
-  console.log(`id: ${id}`);
   const response = await api.post(`/questions/check/${id}`);
   return response.data;
 }
