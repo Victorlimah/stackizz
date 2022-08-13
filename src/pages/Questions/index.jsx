@@ -126,10 +126,14 @@ export default function Questions() {
   }
 
   async function finalizeQuizz() {
-    nextQuestion("last");
-    setTimeout(() => {
-      navigate("/result");
-    });
+    await nextQuestion("last");
+
+    const data = {
+      score,
+      numberOfQuestions,
+    };
+
+    navigate("/finish", { state: { data } });
   }
 
   function stepQuestion() {

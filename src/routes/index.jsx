@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Finish from "../pages/Finish";
 import Home from "../pages/Home";
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login";
@@ -21,6 +22,8 @@ export default function Router() {
           <Route path="/topic/:id" element={<Topic/>} />
 
           <Route path="/questions/:id" element={<Questions/>} />
+          <Route path="/finish" element={<Finish/>} />
+
 
           <Route path="/history" element={<h1>the page is being developed</h1>} />
           <Route path="/ranking" element={<h1>the page is being developed</h1>} />
