@@ -1,9 +1,11 @@
 import * as S from "./styles";
 
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { AppContext } from "../../providers/AppContext";
 
 import { getModules } from "../../services/modulesService";
+import PrivateRoute from "../../services/PrivateRoute";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -11,6 +13,8 @@ import Footer from "../../components/Footer";
 export default function Home() {
   const [modules, setModules] = useState([]);
   const navigate = useNavigate();
+  const { user } = useContext(AppContext);
+  console.log(user);
 
   async function getAllModules() {
     const response = await getModules();
@@ -22,12 +26,12 @@ export default function Home() {
   }, []);
 
   return (
-    <>
+    <PrivateRoute>
       <Header />
       <S.Container>
         <S.Header>
           <S.Heading> Bem vindo(a) </S.Heading>
-          <S.Username> Nome do usuário </S.Username>
+          <S.Username>{user ? user.name : ""}</S.Username>
         </S.Header>
         <S.Content>
           <S.Module>
@@ -37,7 +41,7 @@ export default function Home() {
         </S.Content>
       </S.Container>
       <Footer page="home" />
-    </>
+    </PrivateRoute>
   );
 
   function modulesFactory(arrayModules) {

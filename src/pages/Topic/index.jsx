@@ -8,6 +8,7 @@ import { RiArrowGoBackFill } from "react-icons/ri";
 import { getTopics } from "../../services/topicsService";
 
 import Header from "../../components/Header";
+import PrivateRoute from "../../services/PrivateRoute";
 
 export default function Topic() {
   const [topics, setTopics] = useState({ Topic: [] });
@@ -24,7 +25,7 @@ export default function Topic() {
   }, [id]);
 
   return (
-    <>
+    <PrivateRoute>
       <Header />
       <S.Container>
         <S.Header>
@@ -41,7 +42,7 @@ export default function Topic() {
         <RiArrowGoBackFill size={40} />
         Voltar para módulos
       </S.BackToHome>
-    </>
+    </PrivateRoute>
   );
 
   function topicsFactory(arrayTopics) {

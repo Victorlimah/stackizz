@@ -10,6 +10,8 @@ import {
 
 import { useState, useEffect } from "react";
 import Header from "../../components/Header";
+import PrivateRoute from "../../services/PrivateRoute";
+
 
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -36,7 +38,7 @@ export default function Questions() {
   }, [id]);
 
   return (
-    <>
+    <PrivateRoute>
       <Header />
       <S.Container>
         <S.HeadingQuestions>
@@ -74,7 +76,7 @@ export default function Questions() {
           </S.Questions>
         </S.Content>
       </S.Container>
-    </>
+    </PrivateRoute>
   );
 
   function selectAnswer(id) {

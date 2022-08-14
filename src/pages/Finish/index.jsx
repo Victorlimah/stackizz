@@ -1,6 +1,7 @@
 import * as S from "./styles";
 
 import { useLocation, useNavigate } from "react-router-dom";
+import PrivateRoute from "../../services/PrivateRoute";
 
 export default function Finish() {
   const location = useLocation();
@@ -9,7 +10,7 @@ export default function Finish() {
   const { score, numberOfQuestions } = location.state.data;
 
   return (
-    <>
+    <PrivateRoute>
       <S.Container>
         <S.BoxResults>
           <S.HeadingResults>Parabéns!</S.HeadingResults>
@@ -38,6 +39,6 @@ export default function Finish() {
           </S.FooterResults>
         </S.BoxResults>
       </S.Container>
-    </>
+    </PrivateRoute>
   );
 }

@@ -69,7 +69,7 @@ export const Question = styled.div`
   padding: 10px;
   border-radius: 0.6rem;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 `;
 
 export const BoxQuestions = styled.div`

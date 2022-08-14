@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Finish from "../pages/Finish";
 import Home from "../pages/Home";
 import LandingPage from "../pages/LandingPage";
@@ -9,6 +10,8 @@ import Topic from "../pages/Topic";
 
 import { AppProvider } from "../providers/AppContext";
 
+// import PrivateRoute from "./../services/PrivateRoute";
+
 export default function Router() {
   return (
     <BrowserRouter>
@@ -18,7 +21,7 @@ export default function Router() {
           <Route path="/signin" element={<Login/>} />
           <Route path="/signup" element={<Register/>} />
 
-          <Route path="/home" element={<Home/>} />
+          <Route path="/home" element={ <Home/>} />
           <Route path="/topic/:id" element={<Topic/>} />
 
           <Route path="/questions/:id" element={<Questions/>} />
