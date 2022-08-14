@@ -1,11 +1,14 @@
 import * as S from "./styles";
 
-import { BsFillPersonFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
+
+import { ImTrophy } from "react-icons/im";
 import { AiFillHome } from "react-icons/ai";
 import { RiHistoryLine } from "react-icons/ri";
-import { ImTrophy } from "react-icons/im";
+import { BsFillPersonFill } from "react-icons/bs";
 
 export default function Footer({ page }) {
+  const navigate = useNavigate();
 
   const hash = {
     home: page === "home",
@@ -18,10 +21,24 @@ export default function Footer({ page }) {
     <>
       <S.Footer>
         <S.FooterContent>
-          <AiFillHome className={hash.home} />
-          <RiHistoryLine className={hash.history} />
-          <ImTrophy className={hash.ranking} />
-          <BsFillPersonFill lassName={hash.profile} />
+          <AiFillHome
+            onClick={() => navigate("/home")}
+            className={hash.home} />
+
+          <RiHistoryLine
+            onClick={() => navigate("/history")}
+            className={hash.history}
+          />
+
+          <ImTrophy
+            onClick={() => navigate("/ranking")}
+            className={hash.ranking}
+          />
+
+          <BsFillPersonFill
+            onClick={() => navigate("/profile")}
+            lassName={hash.profile}
+          />
         </S.FooterContent>
       </S.Footer>
     </>
