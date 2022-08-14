@@ -128,11 +128,12 @@ table {
 }
 
  *{
-  box-sizing: border-box;
-    transition: all 0.5s ease-in-out;
-}
-
-body{
+   box-sizing: border-box;
+   transition: all 0.5s ease-in-out;
+  }
+  
+  body{
+  overflow-x: hidden; /* Hide scrollbars */
   font-family: 'Nunito Sans', sans-serif;
 }
 `;

@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { RiArrowGoBackFill } from "react-icons/ri";
 
-import { getTopics } from "../../services/topicsService";
+import { getTopics } from "../../services/api/topicsService";
 
 import Header from "../../components/Header";
 import PrivateRoute from "../../services/PrivateRoute";

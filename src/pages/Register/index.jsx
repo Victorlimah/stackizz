@@ -8,7 +8,7 @@ import logo from "../../assets/logotipo.png";
 import developer from "../../assets/developer.png";
 import background from "../../assets/animated-background.gif";
 
-import { signup } from "../../services/authService";
+import { signup } from "../../services/api/authService";
 
 export default function Register() {
   const {

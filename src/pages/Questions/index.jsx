@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import {
   getQuestionsWithAnswers,
   checkAnswer,
-} from "../../services/questionsService";
+} from "../../services/api/questionsService";
 
 import { useState, useEffect } from "react";
 import Header from "../../components/Header";

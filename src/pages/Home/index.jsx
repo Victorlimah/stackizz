@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { AppContext } from "../../providers/AppContext";
 
-import { getModules } from "../../services/modulesService";
+import { getModules } from "../../services/api/modulesService";
 import PrivateRoute from "../../services/PrivateRoute";
 
 import Header from "../../components/Header";
@@ -14,8 +14,7 @@ export default function Home() {
   const [modules, setModules] = useState([]);
   const navigate = useNavigate();
   const { user } = useContext(AppContext);
-  console.log(user);
-
+  
   async function getAllModules() {
     const response = await getModules();
     setModules(response);

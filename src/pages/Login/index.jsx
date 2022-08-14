@@ -8,7 +8,7 @@ import logo from "../../assets/logotipo.png";
 import developer from "../../assets/developer.png";
 import background from "../../assets/animated-background.gif";
 
-import { signin } from "../../services/authService";
+import { signin } from "../../services/api/authService";
 
 export default function Login() {
   const {
