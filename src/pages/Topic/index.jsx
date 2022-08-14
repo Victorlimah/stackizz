@@ -3,6 +3,8 @@ import * as S from "./styles";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
+import Swal from "sweetalert2";
+
 import { RiArrowGoBackFill } from "react-icons/ri";
 
 import { getTopics } from "../../services/api/topicsService";
@@ -17,7 +19,17 @@ export default function Topic() {
 
   async function getAllTopics() {
     const response = await getTopics(id);
-    setTopics(response);
+    if (response.Topic.length === 0) {
+      Swal.fire({
+        title: "Ops!",
+        text: "Este módulo está bloqueado!",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+      navigate("/home");
+    } else {
+      setTopics(response);
+    }
   }
 
   useEffect(() => {

@@ -14,7 +14,6 @@ import { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import PrivateRoute from "../../services/PrivateRoute";
 
-
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function Questions() {
@@ -29,10 +28,20 @@ export default function Questions() {
   const [questionsBar, setQuestionsBar] = useState([]);
 
   async function getAllQuestions() {
-    const response = await getQuestionsWithAnswers(id);
-    setQuestions(response);
-    setNumberOfQuestions(response.length);
-    setQuestionsBar(response.map((question) => "empty"));
+    try{
+      const response = await getQuestionsWithAnswers(id);
+      setQuestions(response);
+      setNumberOfQuestions(response.length);
+    }
+    catch(err){
+      Swal.fire({
+        title: "Ops!",
+        text: "Este módulo está bloqueado!",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+      navigate("/home");
+    }
   }
 
   useEffect(() => {
@@ -147,6 +156,19 @@ export default function Questions() {
   }
 
   function exitToTopics() {
-    navigate("/home");
+    Swal.fire({
+      title: "Tem certeza?",
+      text: "Você deseja sair do quizz?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sim",
+      cancelButtonText: "Não",
+    }).then((result) => {
+      if (result.value) {
+        navigate(`/home`);
+      }
+    });
   }
 }
