@@ -13,3 +13,8 @@ export async function getHistory() {
   const response = await api.get(`/history`, authorization);
   return response.data;
 }
+
+export async function getRanking() {
+  const response = await api.get(`/ranking`, authorization);
+  return response.data;
+}

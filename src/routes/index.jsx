@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login";
 import Questions from "../pages/Questions";
+import Ranking from "../pages/Ranking";
 import Register from "../pages/Register";
 import Topic from "../pages/Topic";
 
@@ -30,7 +31,7 @@ export default function Router() {
 
 
           <Route path="/history" element={<History/>} />
-          <Route path="/ranking" element={<h1>the page is being developed</h1>} />
+          <Route path="/ranking" element={<Ranking/>} />
           <Route path="/profile" element={<h1>the page is being developed</h1>} />
 
           <Route path="*" element={<h1>page not found</h1>} />
