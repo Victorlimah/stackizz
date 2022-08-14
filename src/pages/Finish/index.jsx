@@ -16,7 +16,7 @@ export default function Finish() {
           <S.HeadingResults>Parabéns!</S.HeadingResults>
           <S.BoxScore>
             <S.TitleScore>Sua pontuação foi:</S.TitleScore>
-            <S.Score>{score * 10}</S.Score>
+            <S.Score>{score*10}</S.Score>
           </S.BoxScore>
           <S.BoxQuestions>
             <S.Question className="total">

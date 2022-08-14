@@ -137,7 +137,7 @@ export default function Questions() {
       numberOfQuestions,
     };
 
-    await createHistory(id, score);
+    await createHistory(id, score * 10);
     navigate("/finish", { state: { data } });
   }
 

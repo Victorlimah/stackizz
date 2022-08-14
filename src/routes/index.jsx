@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Finish from "../pages/Finish";
+import History from "../pages/History";
 import Home from "../pages/Home";
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login";
@@ -28,7 +29,7 @@ export default function Router() {
           <Route path="/finish" element={<Finish/>} />
 
 
-          <Route path="/history" element={<h1>the page is being developed</h1>} />
+          <Route path="/history" element={<History/>} />
           <Route path="/ranking" element={<h1>the page is being developed</h1>} />
           <Route path="/profile" element={<h1>the page is being developed</h1>} />
 

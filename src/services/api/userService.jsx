@@ -8,3 +8,8 @@ export async function createHistory(topicId, score) {
   );
   return response.data;
 }
+
+export async function getHistory() {
+  const response = await api.get(`/history`, authorization);
+  return response.data;
+}
