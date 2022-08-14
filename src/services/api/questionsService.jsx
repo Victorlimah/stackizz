@@ -8,6 +8,6 @@ export async function getQuestionsWithAnswers(id) {
 }
 
 export async function checkAnswer(id){
-  const response = await api.post(`/questions/check/${id}`, authorization);
+  const response = await api.post(`/questions/check/${id}`, {}, authorization);
   return response.data;
 }

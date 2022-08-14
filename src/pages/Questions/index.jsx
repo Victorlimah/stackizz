@@ -8,6 +8,8 @@ import {
   checkAnswer,
 } from "../../services/api/questionsService";
 
+import { createHistory } from "../../services/api/userService";
+
 import { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import PrivateRoute from "../../services/PrivateRoute";
@@ -135,6 +137,7 @@ export default function Questions() {
       numberOfQuestions,
     };
 
+    await createHistory(id, score);
     navigate("/finish", { state: { data } });
   }
 

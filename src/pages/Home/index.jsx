@@ -14,7 +14,7 @@ export default function Home() {
   const [modules, setModules] = useState([]);
   const navigate = useNavigate();
   const { user } = useContext(AppContext);
-  
+
   async function getAllModules() {
     const response = await getModules();
     setModules(response);
